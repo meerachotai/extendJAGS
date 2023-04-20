@@ -20,7 +20,7 @@
 ###  JAGS_MAJOR_ASSUMED is not needed (always 0) on unix
 ###############
 
-PKG_CPPFLAGS=@JAGS_CFLAGS@ -D JAGS_MAJOR_FORCED=0$(JAGS_MAJOR_VERSION) -D JAGS_MAJOR_ASSUMED=0
+PKG_CPPFLAGS=@JAGS_CFLAGS@ -D JAGS_MAJOR_FORCED=0$(JAGS_MAJOR_VERSION) -D JAGS_MAJOR_ASSUMED=0 -O2 -ansi -pedantic -DFORTRAN_TRAILING_UNDERSCORE -framework Accelerate -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Headers/ -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/
 PKG_LIBS=@JAGS_LIBS@ @JAGS_RPATH@
 
 ###############
@@ -31,9 +31,6 @@ PKG_LIBS=@JAGS_LIBS@ @JAGS_RPATH@
 ###  NB: the objects in distributions/jags are only necessary for JAGS <=3, and are excluded by the sources when compiling against JAGS >= 4
 ###############
 
-OBJECTS = distributions/jags/DFunction.o distributions/jags/DPQFunction.o distributions/jags/PFunction.o distributions/jags/QFunction.o distributions/jags/RScalarDist.o distributions/DPar1.o distributions/DPar2.o distributions/DPar3.o distributions/DPar4.o distributions/DPar5.o distributions/DLomax.o distributions/DMouchel.o distributions/DGenPar.o distributions/DHalfCauchy.o init.o runjags.o testrunjags.o functions/MAbs.o
+OBJECTS = distributions/jags/DFunction.o distributions/jags/DPQFunction.o distributions/jags/PFunction.o distributions/jags/QFunction.o distributions/jags/RScalarDist.o distributions/DPar1.o distributions/DPar2.o distributions/DPar3.o distributions/DPar4.o distributions/DLomax.o distributions/DMouchel.o distributions/DGenPar.o distributions/DHalfCauchy.o init.o runjags.o testrunjags.o functions/matrix.o functions/Chol.o
 
 ###############
-
-
-
