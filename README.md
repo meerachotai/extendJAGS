@@ -32,4 +32,4 @@ results <- run.jags(m, data = list("A" = A), monitor=c("L"),
                     method="rjags", modules="runjags")
 results
 ```
-Outputs an lower triangular matrix
+Outputs a lower triangular matrix
