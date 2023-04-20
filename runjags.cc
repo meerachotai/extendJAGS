@@ -53,8 +53,8 @@
 #include "distributions/DPar2.h"
 #include "distributions/DPar3.h"
 #include "distributions/DPar4.h"
-#include "distributions/DPar5.h"
-#include "functions/MAbs.h"
+#include "functions/Chol.h"
+#include "functions/matrix.h"
 #include "distributions/DGenPar.h"
 #include "distributions/DHalfCauchy.h"
 
@@ -74,7 +74,7 @@ namespace runjags {
 runjagsModule::runjagsModule() : Module("runjags")
 {
   // insert is the standard way to add a distribution or function
-  insert(new MAbs);
+  insert(new Chol);
   // insert(new mydist);
   
   // Rinsert (copied from jags) adds the distribution, as well as d,f,q functions simultaneously:
@@ -82,7 +82,6 @@ runjagsModule::runjagsModule() : Module("runjags")
   Rinsert(new DPar2);
   Rinsert(new DPar3);
   Rinsert(new DPar4);
-  Rinsert(new DPar5);
   Rinsert(new DLomax);
   Rinsert(new DMouchel);
   Rinsert(new DGenPar);
@@ -136,8 +135,6 @@ jags::runjags::runjagsModule _runjags_module;
 #include "distributions/DPar2.h"
 #include "distributions/DPar3.h"
 #include "distributions/DPar4.h"
-#include "distributions/DPar5.h"
-#include "functions/MAbs.h"
 #include "distributions/DGenPar.h"
 #include "distributions/DHalfCauchy.h"
 
@@ -159,14 +156,11 @@ runjagsModule::runjagsModule() : Module("runjags")
   // insert(new myfun);
   // insert(new mydist);
   
-  insert(new MAbs);
-  
   // Rinsert (copied from jags) adds the distribution, as well as d,f,q functions simultaneously:
   Rinsert(new DPar1);
   Rinsert(new DPar2);
   Rinsert(new DPar3);
   Rinsert(new DPar4);
-  Rinsert(new DPar5);
   Rinsert(new DLomax);
   Rinsert(new DMouchel);
   Rinsert(new DGenPar);
