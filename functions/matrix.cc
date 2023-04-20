@@ -50,14 +50,14 @@ bool cholesky (double *X, double const *A, int n)
     
 //	https://netlib.org/lapack/explore-html/d1/d7a/group__double_p_ocomputational_ga2f55f604a6003d03b5cd4a0adcfb74d6.html
 //	F77_DPOTRF ("L", &n, Acopy, &n, &info);
-	char uplo = 'U';
+	char uplo = 'L';
 	F77NAME(dpotrf)(&uplo, &n, Acopy, &n, &info);
 
     for (int i = 0; i < n; ++i) {
-	X[i*n + i] = Acopy[i*n + i]; // diagonals
+	X[i*n + i] = Acopy[i*n + i];
 	for (int j = 0; j < i; ++j) {
-	    X[j*n + i] = 0; // upper triangle
-	    X[i*n + j] = Acopy[i*n + j]; // lower triangle
+	    X[j*n + i] = Acopy[j*n + i];
+	    X[i*n + j] = 0;
 	}
     }
     delete [] Acopy;
@@ -68,4 +68,7 @@ bool cholesky (double *X, double const *A, int n)
     return true;
 }
 
-}}
+}
+#ifndef INCLUDERSCALARDIST
+}
+#endif
