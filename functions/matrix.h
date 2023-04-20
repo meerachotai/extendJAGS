@@ -34,6 +34,9 @@ bool check_symmetry(double const *X, unsigned int n, double tol=1e-7);
  */
 bool cholesky (double *X, double const *A, int n);
 
-}}
+}
+#ifndef INCLUDERSCALARDIST
+}
+#endif
 
 #endif /* MATRIX_H_ */
