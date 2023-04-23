@@ -24,7 +24,6 @@ Copy custom function files from this repository into `runjags/src`:
 * `functions/Chol.h`
 * `functions/Chol.cc` (adapted from `JAGS-4.3.2/src/modules/bugs/functions/Inverse.cc`)
 * `functions/lapack.h`
- * For Linux and other systems, you may have to locate 
 * `functions/matrix.h`
 * `functions/matrix.cc` (adapted from `JAGS-4.3.2/src/modules/bugs/matrix/matrix.cc`)
 
